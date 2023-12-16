@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+
+<table class="table">
+	
+	<thead>
+		
+		<tr>
+			<th>Id</th>
+			<th>First Name</th>
+			<th>Last name</th>
+			<th>Email</th>
+			<th>Gender</th>
+			<th>Date of Birth</th>
+			<th>Company</th>
+			<th> 
+				<a th:href="@{/addEmployee}" class="btn btn-success">Agregar empleado</a>
+			</th>
+			<th></th>
+		</tr>
+		
+	</thead>
+	<tbody>
+		
+		<tr th:each="employee :${listEmployees}"> <!-- bucle para buscar todos los empleados -->
+			<th th:text="${employee.id}"></th>
+			<th th:text="${employee.firstName}"></th>
+			<th th:text="${employee.lastName}"></th>
+			<th th:text="${employee.email}"></th>
+			<th th:text="${employee.gender}"></th>
+			<th th:text="${employee.dateOfBirth}"></th>
+			<th th:text="${employee.company.getName()}"></th>
+			<th>
+				<a th:href="@{'/editEmployee?id=' + ${employee.id}}" class="btn btn-warning">Editar</a>
+			</th>
+			<th>
+				<a th:href="@{'/deleteEmployee?id=' + ${employee.id}}" class="btn btn-danger">Borrar</a>
+			</th>
+		</tr>
+	</tbody>
+	
+</table>
+
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>

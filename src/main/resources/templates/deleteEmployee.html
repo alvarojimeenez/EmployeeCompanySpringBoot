@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+	<div class="container">
+		<h2>Borrar empleado</h2>
+	<form method="get" th:action="@{/buttonDeleteEmployee}" th:object="${employee}">
+			<input type="hidden" th:field="*{id}" />
+	    	<div class="mb-3">
+	        	<label for="exampleInputPassword1" class="form-label">First Name</label>
+	        	<input type="text" class="form-control" th:field="*{firstName}" disabled>
+	    	</div>
+	    	<div class="mb-3">
+	        	<label class="form-check-label" for="exampleCheck1">Last Name</label>
+	        	<input type="text" class="form-control" th:field="*{lastName}" disabled>
+	    	</div>
+		
+			<div class="mb-3">
+	        	<label class="form-check-label" for="exampleCheck1">Email</label>
+	        	<input type="email" class="form-control" th:field="*{email}" disabled>
+	    	</div>
+	    	
+	    	<div class="mb-3">
+	        	<label class="form-check-label" for="exampleCheck1">Gender</label>
+	        	<input type="text" class="form-control" th:field="*{gender}" disabled>
+	    	</div>
+	    	
+	    	<div class="mb-3">
+	        	<label class="form-check-label" for="exampleCheck1">Date of Birth</label>
+	        	<input type="date" class="form-control" th:field="*{dateOfBirth}" disabled>
+	    	</div>
+	    	
+	    	<div class="mb-3">
+	        	<label class="form-check-label" for="exampleCheck1">Company</label>
+	        	<input type="text" class="form-control" th:field="*{company.name}" disabled>
+	    	</div>
+	    	
+			<button type="submit" class="btn btn-info" name="edit">Borrar</button>
+		</form>
+</div>
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>

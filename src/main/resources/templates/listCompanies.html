@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+
+<table class="table">
+	
+	<thead>
+		
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Address</th>
+			<th>City</th>
+			<th> 
+				<a th:href="@{/addCompany}" class="btn btn-success">Agregar compañia</a>
+			</th>
+		</tr>
+		
+	</thead>
+	<tbody>
+		
+		<tr th:each="company :${listCompanies}">  <!-- bucle para buscar todos las compañias -->
+			<th th:text="${company.id}"></th>
+			<th th:text="${company.name}"></th>
+			<th th:text="${company.address}"></th>
+			<th th:text="${company.city}"></th>
+			<th>
+				<a th:href="@{'/editCompany?id=' + ${company.id}}" class="btn btn-warning">Editar</a>
+			</th>  <!-- enlace que le pasamos la id  -->
+			<th>
+				<a th:href="@{'/deleteCompany?id=' + ${company.id}}" class="btn btn-danger">Borrar</a>
+			</th>
+		</tr>
+	</tbody>
+	
+</table>
+
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>

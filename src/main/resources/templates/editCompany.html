@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+	<div class="container">
+		<h2>Editar compañia</h2>
+	<form method="get" th:action="@{/buttonEdit}" th:object="${company}">
+			<input type="hidden" th:field="*{id}" />
+	    	<div class="mb-3">
+	        	<label for="exampleInputPassword1" class="form-label">Nombre</label>
+	        	<input type="text" class="form-control" th:field="*{name}">
+	    	</div>
+	    	<div class="mb-3">
+	        	<label class="form-check-label" for="exampleCheck1">Address</label>
+	        	<input type="text" class="form-control" th:field="*{address}">
+	    	</div>
+		
+			<div class="mb-3">
+	        	<label class="form-check-label" for="exampleCheck1">City</label>
+	        	<input type="text" class="form-control" th:field="*{city}">
+	    	</div>
+	    	
+			<button type="submit" class="btn btn-info" name="anadir">Editar</button>
+		</form>
+</div>
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>
